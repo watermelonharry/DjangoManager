@@ -1,55 +1,50 @@
-web server based on django-1.6 and django-restframework2.4.8.
-using bootstrap and Jquery to demonstrate the data.
+It'll be a deploy platform(or an DevOp platform) using:
+1. Django as web server (controller) to manage the tasks
+2. Ansible(or fabric) as local/remote executer (agent)
+3. ZeroRPC(or Celery / rest api) to distribute tasks
+4. Bootstrap and Vue to reduce the costs in front-end developing
+-----------------------------
 
 required package:
-1. django 1.6.X
+1. django 1.11.X
 2. django-rest-framework-2.X.X
 3. other modules
-
-The remote terminal hasn't been uploaded. So you can design it on your own.
 
 INSTALL GUIDE:
 step 1: git clone xxxx
 step 2: cd to project dir, using "pip install -r requirements.txt" to install required package
 step 3: using "python manage.py syncdb" to create your own database.
-step 4: run test server or deploy the server in apache/nginx.
+step 4: run test server or deploy the server in apache/nginx. Dokcer env is recommended
 
 -----------------------------
-snapshots：
-![main page](https://github.com/watermelonharry/django-ipmanage/blob/master/introduction/main_page.png)
-
------------------------------
-function:
-1. MAC-IP bind and management(in reformatting)
-2. devices params management
-3. user management.
-4. quick tools
-5. file download management(the download requests will be redirected by nginx directly)
-6. terminal api modules.
+dev roadmap:
+1.1. command management: keep sh command in database
+1.2. agent register: agent will register to server
+1.3. advanced user management.
+2.1. agent remote control: push commands from server and execute them remotely.
+2.2. agent status monitoring and graphic demonstration: monitor the agent status.
+....and so on
 
 structure:
-------
+-----------------------------
+--commader: sh command manager. Offers single command / command set storage. 
 --basepkg: public modules
---dnstest: (disused) dns test module
 --feedback: feedback module, prototype.
---filemanage: manage the download url.
---iottest: iot test module, using vue.
---ipcmanage: (in reformatting)
---ipcset: manage the devices' params.
---mySiteD: base folder, contains the django config files.
+--DjangoManager: base folder, contains the django config files, and "welcome page".
 --static: static files, such as *.js *.ico *.css
 --terminalReg: manage the terminal's registration.
 --userManage: manage the users' profiles, providing user signup/verification services.
---terminalapi: a simple terminal dispatch module, contains a registration thread, a receiver thread(simple http server) and a mission-dispatcher thread.
 -manage.py: django's powerful tool.
 -requirement.txt: required packages.
-
+-----------------------------
 todo:
-1. verify api-key in exposed json-api.[done]
-2. UX adjustment.[partly done]
-3. remote terminal registration and management.[done]
-4. reformatting ipmanage model.
-5. migrate to vue.js[partly done].
-6. design a module which can auto-generate bootstrap-style tempelates by models.
-7. using the django(or nginx)'s cache system.
-8. unittest for each module.
+1.1. command management: keep sh command in database
+1.2. agent register: agent will register to server
+1.3. advanced user management.
+2.1. agent remote control: push commands from server and execute them remotely.
+2.2. agent status monitoring and graphic demonstration: monitor the agent status.
+....and so on
+-----------------------------
+snapshots：
+main page(inherit from former project):
+![main page](https://github.com/watermelonharry/django-ipmanage/blob/master/introduction/main_page.png)
