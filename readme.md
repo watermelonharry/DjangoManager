@@ -5,19 +5,19 @@ It'll be a deploy platform(or an DevOp platform) using:
 4. Bootstrap and Vue to reduce the costs in front-end developing
 -----------------------------
 
-required package:
+#required package:
 1. django 1.11.X
 2. django-rest-framework-2.X.X
 3. other modules
 
-INSTALL GUIDE:
+#INSTALL GUIDE:
 1. git clone xxxx
 2. cd to project dir, using "pip install -r requirements.txt" to install required package
 3. using "python manage.py syncdb" to create your own database.
 4. run test server or deploy the server in apache/nginx. Dokcer env is recommended
 
 -----------------------------
-dev roadmap:
+#dev roadmap:
 1. command management: keep sh command in database
 2. agent register: agent will register to server
 3. advanced user management.
@@ -26,7 +26,7 @@ dev roadmap:
 ....and so on
 
 -----------------------------
-structure:
+#structure:
 --commader: sh command manager. Offers single command / command set storage.  
 --basepkg: public modules  
 --feedback: feedback module, prototype.  
@@ -39,7 +39,7 @@ structure:
 
 
 -----------------------------
-todo:
+#todo:
 1. command management: keep sh command in database
 2. agent register: agent will register to server
 3. advanced user management.
@@ -48,6 +48,6 @@ todo:
 ....and so on
 
 -----------------------------
-snapshots：
-main page(inherit from former project):
+#snapshots：
+##main page(inherit from former project):
 ![main page](https://github.com/watermelonharry/django-ipmanage/blob/master/introduction/main_page.png)
