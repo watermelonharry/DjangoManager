@@ -27,15 +27,15 @@ dev roadmap:
 
 -----------------------------
 structure:
---commader: sh command manager. Offers single command / command set storage. 
---basepkg: public modules
---feedback: feedback module, prototype.
---DjangoManager: base folder, contains the django config files, and "welcome page".
---static: static files, such as *.js *.ico *.css
---terminalReg: manage the terminal's registration.
---userManage: manage the users' profiles, providing user signup/verification services.
--manage.py: django's powerful tool.
--requirement.txt: required packages.
+--commader: sh command manager. Offers single command / command set storage.  
+--basepkg: public modules  
+--feedback: feedback module, prototype.  
+--DjangoManager: base folder, contains the django config files, and "welcome page".  
+--static: static files, such as *.js *.ico *.css  
+--terminalReg: manage the terminal's registration.  
+--userManage: manage the users' profiles, providing user signup/verification services.  
+-manage.py: django's powerful tool.  
+-requirement.txt: required packages.  
 
 
 -----------------------------
