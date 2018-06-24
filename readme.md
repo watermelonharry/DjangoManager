@@ -26,7 +26,7 @@ It'll be a deploy platform(or an DevOp platform) using:
 ....and so on
 
 -----------------------------
-#structure:
+#structure:  
 --commader: sh command manager. Offers single command / command set storage.  
 --basepkg: public modules  
 --feedback: feedback module, prototype.  
