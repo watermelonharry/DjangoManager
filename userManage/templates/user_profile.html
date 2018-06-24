@@ -1,0 +1,21 @@
+{% extends "user_banner.html" %}
+{% block content %}
+    <div class="container">
+        <form class="form-horizontal" role="form" action="" method="post">
+
+            {#            {% for key in api_key %}#}
+            <div class="form-group">
+                {% csrf_token %}
+                <label class="col-sm-1 control-label">Api Key:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="user_name"
+                           value={{ api_key.key_chain }} disabled>
+                </div>
+                <button class="btn btn-success" type="submit">重新生成</button>
+            </div>
+            {#            {% endfor %}#}
+        </form>
+    </div>
+    </div>
+
+{% endblock %}

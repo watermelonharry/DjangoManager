@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    {% csrf_token %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-theme.css">
+    <script type="text/javascript" src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    {% block js_css %}
+    {% endblock %}
+    {% block title_content %}
+    {% endblock %}
+</head>
+<body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/hello">测试工具集合</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">主页</a></li>
+                    <li><a href={% url "global_about_page" %}>关于</a></li>
+                    <li><a href={% url 'feedback:feedback_submit' %}>联系我</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">工具列表<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">已有工具</li>
+                            <li><a href="">-IP批量管理工具 [无法使用]</a></li>
+                            <li><a href="">-码流参数批量设置</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">快速应用工具</li>
+                            <li><a href={% url "instant_tool" %}>-重启/重置/修改密码</a></li>
+
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">其他</li>
+                            <li><a href={% url "show_terminal_list" %}>-查看已注册终端</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">兼容性测试<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">基础信息</li>
+                            <li><a href="">-陪测设备信息</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">任务管理</li>
+                            <li><a href="">-测试任务管理</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="">下载</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><input type="hidden" id="login_user_name" value={{ user.username }}></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">{{ user.username }}<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href={% url 'user_profile' %}>- ak查询</a></li>
+                            </ul>
+                        </li>
+                        <li><a href={% url 'user:user_logout' %}>注销</a></li>
+
+                    {% else %}
+                        <li><a href={% url 'user:user_login' %}>登陆</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <hr>
+    <div class="container">
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <h1>{{ firstTitle }}</h1>
+
+            <p>{{ firstTitle_content }}</p>
+        </div>
+    </div>
+<!-- /container -->
+
+{% block global_banner_content %}
+{% endblock %}
+<hr>
+<div id="footer">
+    <div class="container">
+        <div align="center">| based on bootstrap| vue | django | django-rest-framework |</div>
+        <div class="copyright" align="center">&copy; 2017</div>
+    </div>
+</div>
+</body>
+
+<script>
+    $.ajaxSettings.traditional = true;
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+</script>
+
+</html>
