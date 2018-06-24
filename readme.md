@@ -11,22 +11,22 @@ required package:
 3. other modules
 
 INSTALL GUIDE:
-step 1: git clone xxxx
-step 2: cd to project dir, using "pip install -r requirements.txt" to install required package
-step 3: using "python manage.py syncdb" to create your own database.
-step 4: run test server or deploy the server in apache/nginx. Dokcer env is recommended
+1. git clone xxxx
+2. cd to project dir, using "pip install -r requirements.txt" to install required package
+3. using "python manage.py syncdb" to create your own database.
+4. run test server or deploy the server in apache/nginx. Dokcer env is recommended
 
 -----------------------------
 dev roadmap:
-1.1. command management: keep sh command in database
-1.2. agent register: agent will register to server
-1.3. advanced user management.
-2.1. agent remote control: push commands from server and execute them remotely.
-2.2. agent status monitoring and graphic demonstration: monitor the agent status.
+1. command management: keep sh command in database
+2. agent register: agent will register to server
+3. advanced user management.
+4. agent remote control: push commands from server and execute them remotely.
+5. agent status monitoring and graphic demonstration: monitor the agent status.
 ....and so on
 
-structure:
 -----------------------------
+structure:
 --commader: sh command manager. Offers single command / command set storage. 
 --basepkg: public modules
 --feedback: feedback module, prototype.
@@ -36,14 +36,17 @@ structure:
 --userManage: manage the users' profiles, providing user signup/verification services.
 -manage.py: django's powerful tool.
 -requirement.txt: required packages.
+
+
 -----------------------------
 todo:
-1.1. command management: keep sh command in database
-1.2. agent register: agent will register to server
-1.3. advanced user management.
-2.1. agent remote control: push commands from server and execute them remotely.
-2.2. agent status monitoring and graphic demonstration: monitor the agent status.
+1. command management: keep sh command in database
+2. agent register: agent will register to server
+3. advanced user management.
+4. agent remote control: push commands from server and execute them remotely.
+5. agent status monitoring and graphic demonstration: monitor the agent status.
 ....and so on
+
 -----------------------------
 snapshots：
 main page(inherit from former project):
